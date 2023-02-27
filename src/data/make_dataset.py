@@ -5,15 +5,18 @@ from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
 
 
-@click.command()
-@click.argument('input_filepath', type=click.Path(exists=True))
-@click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
+# @click.command()
+# @click.argument('input_filepath', type=click.Path(exists=True))
+# @click.argument('output_filepath', type=click.Path())
+# @click.option('--trim', default=False, help='Trim silence from the beginning and end of the audio')
+def main(input_filepath, output_filepath, trim = False):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
     """
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
+    
+    print(f"Making data all day long from {input_filepath} to {output_filepath}")
 
 
 if __name__ == '__main__':
